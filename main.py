@@ -16,7 +16,7 @@ DIGIT_DICTIONARY = {
 }
 
 OPERATIONS = {
-    "%":(0,1), "DEL":(0, 2), "AC":(0,3), "/":(0,4),
+    "AC":(0,1), "DEL":(0, 3), "/":(0,4),
     "X":(1,4),
     "+":(2,4),
     "-":(3,4),
@@ -84,6 +84,8 @@ class Calculator:
                 button = tk.Button(self.display_buttons_frame, text=operation, command= lambda x=operation: self.tap_equal(),bg=BUTTON_BACKGROUND_COLOR, foreground=TEXT_COLOR,font=FONT_TUPLE_BUTTON)
             elif operation == "AC":
                 button = tk.Button(self.display_buttons_frame, text=operation, command= lambda x=operation: self.tap_AC(),bg=BUTTON_BACKGROUND_COLOR, foreground=TEXT_COLOR,font=FONT_TUPLE_BUTTON)
+                button.grid(row=position[0], column=position[1], sticky=tk.NSEW, columnspan=2)
+                continue
             elif operation == "DEL":
                 button = tk.Button(self.display_buttons_frame, text=operation, command= lambda x=operation: self.tap_DEL(),bg=BUTTON_BACKGROUND_COLOR, foreground=TEXT_COLOR,font=FONT_TUPLE_BUTTON)
             else:
